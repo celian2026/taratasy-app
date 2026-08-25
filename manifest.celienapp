@@ -1,0 +1,13 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "EnergieSun app",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "ESMad",
+  "start_url": "/",
+  "theme_color": "#0b5f3c",
+  "id": "energie-sun-app",
+  "description": "Application de gestion des contrats et paiements"
+}
