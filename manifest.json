@@ -4,15 +4,15 @@
   "display": "standalone",
   "name": "EnergieSun app",
   "orientation": "any",
-  "scope": "/",
+  "scope": "/taratasy-app/",
   "short_name": "ESMad",
-  "start_url": "/",
+  "start_url": "/taratasy-app/",
   "theme_color": "#0b5f3c",
   "id": "energie-sun-app",
   "description": "Application de gestion des contrats et paiements",
   "icons": [
     {
-      "src": "/file_00000000de8071f5808511bde08a9816.png",
+      "src": "/taratasy-app/file_00000000de8071f5808511bde08a9816.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
