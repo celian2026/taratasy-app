@@ -1,143 +1,150 @@
 <!doctype html>
-<html lang="fr">
+<html lang="mg">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b5f3c">
-<<link rel="manifest" href="manifest.json">
-<title>Énergie SUN Mada — Contrats</title>
+<link rel="manifest" href="manifest.json">
+<title>ÉnergieSun Mada AI V2</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7f5;color:#17321f}
-header{background:#0b5f3c;color:#fff;padding:14px 16px;position:sticky;top:0;z-index:2}
-header h1{font-size:19px;margin:0}header small{opacity:.85}
-main{max-width:760px;margin:auto;padding:14px}.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px #0001}
-h2{font-size:17px;margin:0 0 12px;color:#0b5f3c;border-bottom:1px solid #dce8df;padding-bottom:8px}
-label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}input,textarea,select{width:100%;padding:11px;border:1px solid #ccd8cf;border-radius:9px;font-size:15px;background:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.full{grid-column:1/-1}
-.total{background:#eef8f0;border-radius:10px;padding:12px;margin-top:10px}.row{display:flex;justify-content:space-between;padding:5px 0}.grand{font-size:18px;font-weight:800;border-top:1px solid #b9d0bf;margin-top:5px;padding-top:9px}
-button{border:0;border-radius:10px;padding:12px 15px;font-weight:700;font-size:14px;cursor:pointer}
-.primary{background:#0b5f3c;color:#fff}.secondary{background:#e7efe9;color:#174d2d}.danger{background:#fce9e7;color:#a5261c}
-.actions{display:flex;gap:8px;flex-wrap:wrap}.contracts button{margin:3px}
-#preview{display:none}.paper{background:white;max-width:800px;margin:auto;padding:28px;color:#18304b;border:1px solid #ddd}
-.paper h1{text-align:center;font-size:20px;margin:0}.paper h3{color:#174d2d;border-bottom:1px solid #aaa;padding-bottom:5px}.paper .logo{float:right;width:110px;margin-top:-40px}
-.line{border-bottom:1px dotted #555;display:inline-block;min-width:220px}.sig{display:flex;justify-content:space-between;margin-top:45px;text-align:center}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.paper{padding:18px}.paper .logo{width:80px}}
-@media print{body>*:not(#preview){display:none!important}#preview{display:block!important}.paper{border:0}}
+:root{--g:#0b5f3c;--g2:#087f50;--bg:#f4f7f5;--card:#fff;--txt:#173329;--mut:#64756e;--red:#b42318;--gold:#a15c00}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,Arial;color:var(--txt)}
+header{background:linear-gradient(135deg,#06452c,#0b5f3c);color:white;padding:18px;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:22px}header small{opacity:.85}
+nav{display:flex;gap:7px;overflow:auto;padding:9px;background:white;position:sticky;top:75px;z-index:4;border-bottom:1px solid #ddd}
+nav button{border:0;border-radius:18px;padding:9px 13px;background:#eaf1ed;color:var(--g);white-space:nowrap;font-weight:700}
+nav button.active{background:var(--g);color:white}
+main{max-width:1050px;margin:auto;padding:14px}.page{display:none}.page.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.card{background:var(--card);border-radius:16px;padding:15px;box-shadow:0 2px 10px #0000000d;border:1px solid #e4ebe7;margin-bottom:12px}
+.kpi{font-size:25px;font-weight:800;margin-top:5px}.muted{color:var(--mut);font-size:13px}
+label{display:block;font-size:13px;font-weight:700;margin:8px 0 4px}input,select,textarea{width:100%;padding:10px;border:1px solid #cfdad4;border-radius:10px;background:white}textarea{min-height:80px}
+button.primary{background:var(--g);color:white;border:0;border-radius:10px;padding:11px 15px;font-weight:800}button.secondary{border:1px solid #b9c8c0;background:white;border-radius:10px;padding:10px 14px;font-weight:700}.danger{color:var(--red)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.right{margin-left:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px;border-bottom:1px solid #e2e8e5;text-align:left}
+.badge{display:inline-block;padding:4px 8px;border-radius:12px;background:#e8f3ed;color:var(--g);font-size:12px;font-weight:700}.over{background:#fdecea;color:var(--red)}.due{background:#fff4d8;color:var(--gold)}
+.preview{background:white;padding:25px;max-width:850px;margin:auto;border:1px solid #ddd}.logo{font-weight:900;color:var(--g);font-size:25px}.sig{max-width:220px;border-bottom:1px solid #333}
+#signature{width:100%;height:170px;border:1px dashed #9aaba2;border-radius:10px;touch-action:none}
+.thumb{width:90px;height:70px;object-fit:cover;border-radius:8px;border:1px solid #ddd;margin:4px}
+@media print{header,nav,.no-print{display:none!important}.page{display:none!important}.print-area{display:block!important}.preview{border:0;box-shadow:none}}
 </style>
 </head>
 <body>
-<header><h1>☀️ Énergie SUN Mada — Contrat</h1><small>Taratasy fifanarahana varotra énergie solaire</small></header>
+<header><h1>☀️ ÉnergieSun Mada AI V2</h1><small>Gestion solaire • Clients • Contrats • Factures • SAV • Stock</small></header>
+<nav id="nav">
+<button data-p="dash" class="active">🏠 Dashboard</button><button data-p="solar">⚡ Calcul solaire</button>
+<button data-p="contract">📄 Contrat</button><button data-p="invoice">🧾 Facture/Devis</button>
+<button data-p="clients">👤 Clients</button><button data-p="catalog">📦 Catalogue</button>
+<button data-p="stock">🏷️ Stock</button><button data-p="sav">🛠️ SAV</button><button data-p="assistant">🤖 Assistant</button>
+<button data-p="backup">💾 Sauvegarde</button>
+</nav>
 <main>
-<form id="form">
-<div class="card"><h2>1. Mombamomba ny mpividy</h2>
+<section id="dash" class="page active">
 <div class="grid">
-<div><label>Anarana sy fanampiny</label><input id="name" required></div>
-<div><label>CIN</label><input id="cin"></div>
-<div><label>Toerana fonenana</label><input id="place"></div>
-<div><label>Téléphone</label><input id="phone" inputmode="tel"></div>
-</div></div>
+<div class="card">💰 Chiffre d'affaires<div id="kca" class="kpi">0 Ar</div></div>
+<div class="card">✅ Déjà payé<div id="kpaid" class="kpi">0 Ar</div></div>
+<div class="card">⏳ Reste à payer<div id="krest" class="kpi">0 Ar</div></div>
+<div class="card">⚠️ Échéances en retard<div id="kover" class="kpi">0</div></div>
+</div>
+<div class="card"><h3>📅 Suivi des échéances</h3><div id="reminders"></div></div>
+<div class="card"><h3>📊 Activité</h3><div id="activity"></div></div>
+</section>
 
-<div class="card"><h2>2. Zavatra amidy</h2>
+<section id="solar" class="page">
+<div class="card"><h2>⚡ Calculateur solaire</h2>
+<div class="grid"><div><label>Puissance appareil (W)</label><input id="sw" type="number" value="75"></div><div><label>Heures/jour</label><input id="sh" type="number" value="6" step=".1"></div><div><label>Quantité</label><input id="sq" type="number" value="1"></div>
+<div><label>Heures de soleil utile/jour</label><input id="psh" type="number" value="5" step=".1"></div><div><label>Autonomie batterie (jours)</label><input id="aut" type="number" value="1" step=".1"></div><div><label>Tension système</label><select id="sv"><option>12</option><option selected>24</option><option>48</option></select></div>
+<div><label>Rendement global (%)</label><input id="eff" type="number" value="80"></div><div><label>DoD batterie (%)</label><input id="dod" type="number" value="80"></div></div>
+<button class="primary" onclick="calcSolar()">Calculer</button>
+<div id="solarResult" class="card" style="margin-top:12px"></div></div>
+<div class="card"><h3>🔌 Chute de tension (indicative)</h3><div class="grid"><div><label>Puissance (W)</label><input id="cw" value="500" type="number"></div><div><label>Tension (V)</label><input id="cv" value="24" type="number"></div><div><label>Longueur aller (m)</label><input id="cl" value="10" type="number"></div><div><label>Section câble (mm²)</label><input id="ca" value="6" type="number"></div></div><button class="primary" onclick="calcCable()">Calculer</button><div id="cableResult"></div></div>
+</section>
+
+<section id="contract" class="page">
+<div class="card"><h2>📄 Contrat de vente à paiement échelonné</h2>
 <div class="grid">
-<div><label>Panneau solaire (W)</label><input id="panel"></div>
-<div><label>Batterie (Ah / V / Karazany)</label><input id="battery"></div>
-<div class="full"><label>Fitovana fanampiny</label><input id="extras" placeholder="Régulateur — Câble — Support — Inverter"></div>
+<div><label>Nom complet</label><input id="cn"></div><div><label>Téléphone</label><input id="cp"></div><div><label>Adresse</label><input id="cad"></div><div><label>CIN</label><input id="ccin"></div>
+<div><label>Lieu</label><input id="clieu" value="Mananara Nord"></div><div><label>Date</label><input id="cdate" type="date"></div><div><label>Matériel</label><input id="cmat" placeholder="Ex: Kit solaire 1kVA + batterie 100Ah"></div><div><label>Prix total (Ar)</label><input id="ctotal" type="number" oninput="contractCalc()"></div>
+<div><label>Avance (Ar)</label><input id="cdep" type="number" value="0" oninput="contractCalc()"></div></div>
+<div id="contractCalcBox" class="card"></div>
+<h3>📅 Échéancier</h3><div id="payments"></div><button class="secondary" onclick="addPayment()">＋ Ajouter une échéance</button>
+<h3>📷 Photos client / CIN</h3><input id="photos" type="file" accept="image/*" multiple onchange="previewPhotos(this)"><div id="photoPreview"></div>
+<h3>✍️ Signature / Empreinte</h3><canvas id="signature"></canvas><div class="row"><button class="secondary" onclick="clearSig()">Effacer</button><button class="primary" onclick="saveContract()">Enregistrer le contrat</button><button class="secondary" onclick="printContract()">Imprimer / PDF</button></div>
 </div>
-<label>Toetran'ny entana</label><select id="condition"><option>Vaovao</option><option>Occasion</option></select>
-</div>
+<div id="contractPrint" class="preview print-area" style="display:none"></div>
+</section>
 
-<div class="card"><h2>3. Vidiny sy fandoavana</h2>
-<div class="grid">
-<div><label>Vidiny manontolo (Ar)</label><input id="price" type="number" min="0" value="0"></div>
-<div><label>Acompte (Ar)</label><input id="deposit" type="number" min="0" value="0"></div>
-<div><label>Date contrat</label><input id="date" type="date"></div>
-</div>
-<div class="total">
-<div class="row"><span>Ambiny sisa</span><b id="balance">0 Ar</b></div>
-<div class="row"><span>Sazy 20%</span><b id="penalty">0 Ar</b></div>
-<div class="row grand"><span>Vola takiana</span><b id="due">0 Ar</b></div>
-</div>
-</div>
+<section id="invoice" class="page">
+<div class="card"><h2>🧾 Facture / Devis</h2><div class="grid"><div><label>Client</label><input id="inclient"></div><div><label>Date</label><input id="indate" type="date"></div><div><label>N° facture/devis</label><input id="inno"></div><div><label>Mode de paiement</label><select id="inmode"><option>Espèces</option><option>Mobile Money</option><option>Virement</option><option>Échelonné</option></select></div></div>
+<table><thead><tr><th>Désignation</th><th>Qté</th><th>Prix unitaire</th><th>Total</th><th></th></tr></thead><tbody id="items"></tbody></table>
+<div class="row"><button class="secondary" onclick="addItem()">＋ Produit</button><b class="right">TOTAL : <span id="intotal">0</span> Ar</b></div>
+<br><button class="primary" onclick="printInvoice()">Imprimer / PDF</button></div><div id="invoicePrint" class="preview print-area" style="display:none"></div>
+</section>
 
-<div class="card"><h2>4. Fandaharana fandoavana</h2>
-<div class="grid">
-<div><label>Daty 1</label><input id="d1" type="date"></div><div><label>Vola 1 (Ar)</label><input id="a1" type="number" value="0"></div>
-<div><label>Daty 2</label><input id="d2" type="date"></div><div><label>Vola 2 (Ar)</label><input id="a2" type="number" value="0"></div>
-<div><label>Daty 3</label><input id="d3" type="date"></div><div><label>Vola 3 (Ar)</label><input id="a3" type="number" value="0"></div>
-</div></div>
+<section id="clients" class="page"><div class="card"><h2>👤 Clients</h2><div id="clientList"></div></div></section>
+<section id="catalog" class="page"><div class="card"><h2>📦 Catalogue produits</h2><div class="grid"><div><label>Produit</label><input id="pn"></div><div><label>Catégorie</label><input id="pc" placeholder="Batterie / panneau / hybride"></div><div><label>Puissance / capacité</label><input id="pspec"></div><div><label>Prix (Ar)</label><input id="pp" type="number"></div><div><label>Garantie</label><input id="pw" value="12 mois"></div></div><button class="primary" onclick="addProduct()">Ajouter</button></div><div class="card" id="productList"></div></section>
+<section id="stock" class="page"><div class="card"><h2>🏷️ Stock</h2><div class="grid"><div><label>Produit</label><input id="sn"></div><div><label>Quantité</label><input id="sqty" type="number"></div><div><label>Prix achat (Ar)</label><input id="sprice" type="number"></div></div><button class="primary" onclick="addStock()">Enregistrer</button></div><div class="card" id="stockList"></div></section>
+<section id="sav" class="page"><div class="card"><h2>🛠️ SAV / Garantie</h2><div class="grid"><div><label>Client</label><input id="svclient"></div><div><label>Équipement</label><input id="sveq"></div><div><label>Date</label><input id="svdate" type="date"></div><div><label>Problème</label><input id="svproblem"></div><div><label>Statut</label><select id="svstatus"><option>Ouvert</option><option>En cours</option><option>Résolu</option></select></div></div><button class="primary" onclick="addSav()">Enregistrer</button></div><div class="card" id="savList"></div></section>
 
-<div class="card"><h2>5. Fanamarihana</h2><textarea id="notes" rows="3"></textarea></div>
-<div class="actions">
-<button class="primary" type="submit">💾 Tehirizo ny contrat</button>
-<button class="secondary" type="button" onclick="showPreview()">👁️ Preview</button>
-<button class="secondary" type="button" onclick="window.print()">📄 PDF / Print</button>
-<button class="danger" type="button" onclick="newContract()">🆕 Vaovao</button>
-</div>
-</form>
+<section id="assistant" class="page"><div class="card"><h2>🤖 Assistant solaire</h2><p class="muted">Assistant local V2 : il aide à orienter le dimensionnement. Pour une étude professionnelle, vérifier les données réelles du site et les limites constructeur.</p>
+<textarea id="ask" placeholder="Ex: TV 75W 6h + frigo 150W 8h, batterie 24V"></textarea><button class="primary" onclick="askAI()">Analyser</button><div id="aiOut" class="card"></div></div></section>
 
-<div class="card contracts"><h2>Contrats voatahiry</h2><div id="list">Tsy mbola misy contrat.</div></div>
+<section id="backup" class="page"><div class="card"><h2>💾 Sauvegarde & restauration</h2><p>Exportez vos données avant de changer de téléphone.</p><button class="primary" onclick="exportData()">Exporter JSON</button> <input type="file" accept=".json" onchange="importData(this)"><hr><button class="secondary danger" onclick="resetAll()">Effacer toutes les données</button></div></section>
 </main>
-
-<div id="preview"><div class="paper">
-<img src="logo.png" class="logo"><h1>TARATASY FIFANARAHANA VAROTRA ÉNERGIE SOLAIRE</h1>
-<p style="text-align:center">(Fandoavana tsikelikely)</p>
-<h3>Andaniny voalohany — Mpivarotra</h3>
-<p><b>Anaran'ny entreprise:</b> Énergie SUN Mada</p><p><b>Ville:</b> Mananara Nord</p>
-<h3>Andaniny faharoa — Mpividy</h3>
-<p>Anarana sy fanampiny: <span class="line" id="pname"></span></p>
-<p>CIN: <span class="line" id="pcin"></span></p><p>Toerana fonenana: <span class="line" id="pplace"></span></p><p>Téléphone: <span class="line" id="pphone"></span></p>
-<h3>Andininy 1 — Zavatra amidy</h3>
-<p>Panneau solaire: <b id="ppanel"></b> W</p><p>Batterie: <b id="pbattery"></b></p><p>Fitovana fanampiny: <b id="pextras"></b></p><p><b>Toetran'ny entana:</b> <span id="pcondition"></span></p>
-<h3>Andininy 2 — Vidiny manontolo</h3><p><b>Ar <span id="pprice"></span></b></p>
-<h3>Andininy 3 — Fandoavana tsikelikely</h3>
-<p>Vola aloha (acompte): Ar <b id="pdeposit"></b></p><p>Ambiny sisa: Ar <b id="pbalance"></b></p><p>Fampitandremana / Sazy 20%: Ar <b id="ppenalty"></b></p><p><b>Vola takiana: Ar <span id="pdue"></span></b></p>
-<p>Daty 1: <span id="pd1"></span> → Ar <span id="pa1"></span></p><p>Daty 2: <span id="pd2"></span> → Ar <span id="pa2"></span></p><p>Daty 3: <span id="pd3"></span> → Ar <span id="pa3"></span></p>
-<h3>Andininy 4 — Fanaterana sy fampiasana</h3><p>Araka ny fifanarahana sy ny fepetra napetraka eo amin'ny andaniny sy ankilany.</p>
-<h3>Fanamarihana</h3><p id="pnotes"></p>
-<p style="margin-top:30px">Natao sy nosoniavina teto Mananara Nord, ny <span id="pdate"></span></p>
-<div class="sig"><div><b>Mpivarotra</b><br>Énergie SUN Mada<br><br>Signature</div><div><b>Mpividy</b><br>Anarana + Sonia<br><br>Signature</div></div>
-</div></div>
-
 <script>
-const ids=['name','cin','place','phone','panel','battery','extras','condition','price','deposit','date','d1','a1','d2','a2','d3','a3','notes'];
-const $=id=>document.getElementById(id);
-const fmt=n=>new Intl.NumberFormat('fr-FR').format(Math.round(Number(n)||0))+' Ar';
-function calc(){
- const price=+$('price').value||0, dep=+$('deposit').value||0;
- const bal=Math.max(0,price-dep), pen=bal*.20, due=bal+pen;
- $('balance').textContent=fmt(bal); $('penalty').textContent=fmt(pen); $('due').textContent=fmt(due);
+const KEY='esm_v2';
+let D=JSON.parse(localStorage.getItem(KEY)||'{"contracts":[],"products":[],"stock":[],"sav":[],"invoices":[]}');
+function save(){localStorage.setItem(KEY,JSON.stringify(D));refresh();}
+function ar(n){return Math.round(Number(n)||0).toLocaleString('fr-FR')}
+function today(){return new Date().toISOString().slice(0,10)}
+document.getElementById('cdate').value=today();document.getElementById('indate').value=today();document.getElementById('svdate').value=today();document.getElementById('inno').value='ESM-'+Date.now().toString().slice(-6);
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(b.dataset.p).classList.add('active');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');refresh()});
+function calcSolar(){
+ let W=+sw.value||0,h=+sh.value||0,q=+sq.value||1, pshv=+psh.value||1,autv=+aut.value||1,V=+sv.value||24,effv=(+eff.value||80)/100,dodv=(+dod.value||80)/100;
+ let wh=W*h*q,kwh=wh/1000,pv=wh/pshv/effv*1.15,bkwh=wh*autv/1000/dodv/effv,bah=bkwh*1000/V,mppt=pv/V*1.25,hybrid=W*q/1000*1.25;
+ solarResult.innerHTML=`<b>Consommation :</b> ${ar(wh)} Wh/jour = ${kwh.toFixed(2)} kWh/jour<br><b>Puissance de pointe :</b> ${ar(W*q)} W<br><b>Panneaux indicatifs :</b> ${Math.ceil(pv/50)*50} Wc<br><b>Batterie :</b> ${bkwh.toFixed(2)} kWh ≈ ${Math.ceil(bah)} Ah à ${V}V<br><b>MPPT :</b> ≈ ${Math.ceil(mppt)} A<br><b>Hybride :</b> ≈ ${Math.ceil(hybrid*10)/10} kVA minimum indicatif`;
 }
-ids.forEach(id=>$(id).addEventListener('input',calc)); calc();
-$('date').valueAsDate=new Date();
-
-function data(){
- const o={}; ids.forEach(id=>o[id]=$(id).value); return o;
+function calcCable(){let P=+cw.value||0,V=+cv.value||1,L=+cl.value||0,A=+ca.value||1,I=P/V,drop=2*L*I*.0175/A,pct=drop/V*100;cableResult.innerHTML=`<div class="card"><b>Courant :</b> ${I.toFixed(2)} A<br><b>Chute :</b> ${drop.toFixed(2)} V (${pct.toFixed(1)}%)<br>${pct<=3?'✅ Chute ≤ 3% (indicatif)':'⚠️ Augmenter la section du câble'}</div>`}
+let payN=0;
+function addPayment(date='',amount=0){payN++;let d=document.createElement('div');d.className='grid card';d.innerHTML=`<div><label>Date paiement ${payN}</label><input class="pdate" type="date" value="${date||today()}"></div><div><label>Montant (Ar)</label><input class="pamt" type="number" value="${amount}" oninput="contractCalc()"></div>`;payments.appendChild(d)}
+addPayment();
+function contractCalc(){let t=+ctotal.value||0,d=+cdep.value||0,bal=Math.max(0,t-d);contractCalcBox.innerHTML=`Prix total : <b>${ar(t)} Ar</b><br>Avance : <b>${ar(d)} Ar</b><br>Solde : <b>${ar(bal)} Ar</b><br>Pénalité prévue au contrat (20%) : <b>${ar(bal*.2)} Ar</b><small class="muted"> — applicable seulement si valablement convenue et permise par la loi.</small>`}
+function previewPhotos(inp){photoPreview.innerHTML='';[...inp.files].slice(0,6).forEach(f=>{let r=new FileReader();r.onload=e=>photoPreview.innerHTML+=`<img class="thumb" src="${e.target.result}">`;r.readAsDataURL(f)})}
+let sigCtx=signature.getContext('2d'),drawing=false;
+function resizeSig(){signature.width=signature.clientWidth*devicePixelRatio;signature.height=170*devicePixelRatio;sigCtx.scale(devicePixelRatio,devicePixelRatio);sigCtx.lineWidth=2;sigCtx.lineCap='round'}resizeSig();window.onresize=resizeSig;
+signature.onpointerdown=e=>{drawing=true;sigCtx.beginPath();sigCtx.moveTo(e.offsetX,e.offsetY)};signature.onpointermove=e=>{if(drawing){sigCtx.lineTo(e.offsetX,e.offsetY);sigCtx.stroke()}};signature.onpointerup=()=>drawing=false;signature.onpointerleave=()=>drawing=false;
+function clearSig(){sigCtx.clearRect(0,0,signature.width,signature.height)}
+function saveContract(){
+ let t=+ctotal.value||0,d=+cdep.value||0,ps=[...document.querySelectorAll('.pdate')].map((x,i)=>({date:x.value,amount:+document.querySelectorAll('.pamt')[i].value||0}));
+ D.contracts.push({id:'CTR-'+Date.now().toString().slice(-7),name:cn.value,phone:cp.value,address:cad.value,cin:ccin.value,place:clieu.value,date:cdate.value,material:cmat.value,total:t,deposit:d,payments:ps,signature:signature.toDataURL(),created:Date.now()});
+ save();alert('Contrat enregistré.');}
+function printContract(){
+ let t=+ctotal.value||0,d=+cdep.value||0,ps=[...document.querySelectorAll('.pdate')].map((x,i)=>({date:x.value,amount:+document.querySelectorAll('.pamt')[i].value||0}));
+ contractPrint.innerHTML=`<div class="logo">☀️ ÉnergieSun Mada</div><p>Toamasina – Madagascar – Mananara Nord</p><hr><h2>CONTRAT DE VENTE À PAIEMENT ÉCHELONNÉ</h2><p><b>Client :</b> ${cn.value}<br><b>Téléphone :</b> ${cp.value}<br><b>Adresse :</b> ${cad.value}<br><b>CIN :</b> ${ccin.value}<br><b>Lieu :</b> ${clieu.value}</p><p><b>Équipement :</b> ${cmat.value}<br><b>Prix total :</b> ${ar(t)} Ar<br><b>Avance :</b> ${ar(d)} Ar<br><b>Solde :</b> ${ar(Math.max(0,t-d))} Ar</p><h3>Échéancier</h3><ul>${ps.map(p=>`<li>${p.date} — ${ar(p.amount)} Ar</li>`).join('')}</ul><h3>Conditions</h3><p>Le matériel reste la propriété d’ÉnergieSun Mada jusqu’au paiement intégral. En cas de retard, une pénalité de 20% peut être appliquée si elle est expressément prévue au contrat et légalement applicable. En cas de non-paiement à l’échéance finale, toute récupération du matériel se fera conformément au contrat, aux notifications requises et à la législation applicable.</p><p>Matériel neuf sauf indication contraire. Garantie selon les conditions de la facture/garantie. Les modifications non autorisées peuvent annuler la garantie.</p><div style="display:flex;justify-content:space-between;margin-top:60px"><div>Signature vendeur<br><br>________________</div><div>Signature client<br><img class="sig" src="${signature.toDataURL()}"></div></div>`;
+ contractPrint.style.display='block';window.print();contractPrint.style.display='none';
 }
-function fill(o){ids.forEach(id=>{if(o[id]!==undefined)$(id).value=o[id]});calc();}
-function contracts(){return JSON.parse(localStorage.getItem('esm_contracts')||'[]')}
-function save(){
- const all=contracts(), o=data();
- o.id='ESM-'+new Date().getFullYear()+'-'+String(all.length+1).padStart(4,'0');
- all.push(o); localStorage.setItem('esm_contracts',JSON.stringify(all)); render(); alert('Voatahiry: '+o.id);
+function addItem(name='',q=1,p=0){let tr=document.createElement('tr');tr.innerHTML=`<td><input class="iname" value="${name}"></td><td><input class="iq" type="number" value="${q}" oninput="invoiceTotal()"></td><td><input class="ip" type="number" value="${p}" oninput="invoiceTotal()"></td><td class="it">0</td><td><button class="secondary" onclick="this.closest('tr').remove();invoiceTotal()">×</button></td>`;items.appendChild(tr);invoiceTotal()}
+addItem();
+function invoiceTotal(){let total=0;document.querySelectorAll('#items tr').forEach(tr=>{let v=(+tr.querySelector('.iq').value||0)*(+tr.querySelector('.ip').value||0);tr.querySelector('.it').textContent=ar(v);total+=v});intotal.textContent=ar(total)}
+function printInvoice(){invoiceTotal();let rows=[...document.querySelectorAll('#items tr')];invoicePrint.innerHTML=`<div class="logo">☀️ ÉnergieSun Mada</div><p>Toamasina – Madagascar – Mananara Nord</p><hr><h2>FACTURE / DEVIS</h2><p>N° ${inno.value} — Date ${indate.value}<br>Client : <b>${inclient.value}</b><br>Mode : ${inmode.value}</p><table><tr><th>Désignation</th><th>Qté</th><th>PU</th><th>Total</th></tr>${rows.map(r=>`<tr><td>${r.querySelector('.iname').value}</td><td>${r.querySelector('.iq').value}</td><td>${ar(r.querySelector('.ip').value)} Ar</td><td>${r.querySelector('.it').textContent} Ar</td></tr>`).join('')}</table><h2 style="text-align:right">TOTAL : ${intotal.textContent} Ar</h2><p><b>Garantie indicative :</b> selon produit et conditions de garantie. Aucun retour/échange sauf défaut d’origine selon les conditions applicables.</p><div style="margin-top:60px;text-align:right">Signature / Cachet<br>________________</div>`;invoicePrint.style.display='block';window.print();invoicePrint.style.display='none';D.invoices.push({no:inno.value,client:inclient.value,date:indate.value,total:+intotal.textContent.replaceAll(/[^0-9]/g,'')||0});save()}
+function addProduct(){if(!pn.value)return;D.products.push({name:pn.value,cat:pc.value,spec:pspec.value,price:+pp.value||0,warranty:pw.value});pn.value='';pc.value='';pspec.value='';pp.value='';save()}
+function addStock(){if(!sn.value)return;D.stock.push({name:sn.value,qty:+sqty.value||0,price:+sprice.value||0});sn.value='';sqty.value='';sprice.value='';save()}
+function addSav(){D.sav.push({client:svclient.value,equipment:sveq.value,date:svdate.value,problem:svproblem.value,status:svstatus.value});svclient.value='';sveq.value='';svproblem.value='';save()}
+function askAI(){let s=ask.value.toLowerCase(),nums=[...s.matchAll(/(\d+(?:[.,]\d+)?)\s*w/g)].map(x=>+x[1].replace(',','.')),hrs=[...s.matchAll(/(\d+(?:[.,]\d+)?)\s*h/g)].map(x=>+x[1].replace(',','.'));let wh=0;for(let i=0;i<Math.min(nums.length,hrs.length);i++)wh+=nums[i]*hrs[i];aiOut.innerHTML=wh?`🔎 Estimation : <b>${wh.toFixed(0)} Wh/jour</b> pour les deux premières charges détectées.<br>Pour un dimensionnement complet, indiquez toutes les puissances, heures d'utilisation, tension système, autonomie et type de batterie.`:`💡 Exemple : “TV 75W 6h + frigo 150W 8h”. L’assistant local détectera les W et h et donnera une première estimation.`}
+function refresh(){
+ let ca=D.invoices.reduce((a,x)=>a+(+x.total||0),0)+D.contracts.reduce((a,x)=>a+(+x.total||0),0),paid=D.contracts.reduce((a,x)=>a+(+x.deposit||0)+x.payments.filter(p=>new Date(p.date)<=new Date()).reduce((s,p)=>s+(+p.amount||0),0),0),rest=Math.max(0,ca-paid),over=[];
+ D.contracts.forEach(c=>c.payments.forEach(p=>{if(p.date<today()&&p.amount)over.push({...p,name:c.name})}));
+ kca.textContent=ar(ca)+' Ar';kpaid.textContent=ar(paid)+' Ar';krest.textContent=ar(rest)+' Ar';kover.textContent=over.length;
+ reminders.innerHTML=over.length?over.map(x=>`<p><span class="badge over">RETARD</span> ${x.name} — ${x.date} — ${ar(x.amount)} Ar</p>`).join(''):'<p>✅ Tsy misy échéance en retard enregistrée.</p>';
+ activity.innerHTML=`Contrats : <b>${D.contracts.length}</b> • Factures/devis : <b>${D.invoices.length}</b> • Produits : <b>${D.products.length}</b> • SAV : <b>${D.sav.length}</b>`;
+ clientList.innerHTML=D.contracts.length?D.contracts.map(c=>`<div class="card"><b>${c.name}</b><br>${c.phone||''}<br>CIN: ${c.cin||'—'}<br>Contrat ${c.id} — ${ar(c.total)} Ar</div>`).join(''):'Aucun client.';
+ productList.innerHTML=D.products.length?`<table><tr><th>Produit</th><th>Catégorie</th><th>Spec</th><th>Prix</th><th>Garantie</th></tr>${D.products.map(p=>`<tr><td>${p.name}</td><td>${p.cat}</td><td>${p.spec}</td><td>${ar(p.price)} Ar</td><td>${p.warranty}</td></tr>`).join('')}</table>`:'Aucun produit.';
+ stockList.innerHTML=D.stock.length?`<table><tr><th>Produit</th><th>Qté</th><th>Prix achat</th></tr>${D.stock.map(s=>`<tr><td>${s.name}</td><td>${s.qty}</td><td>${ar(s.price)} Ar</td></tr>`).join('')}</table>`:'Aucun stock.';
+ savList.innerHTML=D.sav.length?D.sav.map(s=>`<div><span class="badge">${s.status}</span> <b>${s.client}</b> — ${s.equipment} — ${s.problem} (${s.date})</div>`).join(''):'Aucun dossier SAV.';
 }
-$('form').addEventListener('submit',e=>{e.preventDefault();save()});
-function render(){
- const all=contracts(), box=$('list');
- if(!all.length){box.textContent='Tsy mbola misy contrat.';return}
- box.innerHTML=all.map((o,i)=>`<div style="padding:9px 0;border-bottom:1px solid #eee"><b>${o.id}</b> — ${o.name||''}<br><small>${o.date||''}</small> <button class="secondary" onclick="loadC(${i})">Hijery</button> <button class="danger" onclick="delC(${i})">Hamafa</button></div>`).join('');
-}
-function loadC(i){fill(contracts()[i]);showPreview()}
-function delC(i){if(confirm('Hamafa ity contrat ity?')){let a=contracts();a.splice(i,1);localStorage.setItem('esm_contracts',JSON.stringify(a));render()}}
-function newContract(){$('form').reset();$('date').valueAsDate=new Date();calc();window.scrollTo(0,0)}
-function setp(id,val){$(id).textContent=val||'—'}
-function showPreview(){
- const o=data(), price=+o.price||0,dep=+o.deposit||0,bal=Math.max(0,price-dep),pen=bal*.2,due=bal+pen;
- setp('pname',o.name);setp('pcin',o.cin);setp('pplace',o.place);setp('pphone',o.phone);setp('ppanel',o.panel);setp('pbattery',o.battery);setp('pextras',o.extras);setp('pcondition',o.condition);
- setp('pprice',fmt(price));setp('pdeposit',fmt(dep));setp('pbalance',fmt(bal));setp('ppenalty',fmt(pen));setp('pdue',fmt(due));
- setp('pd1',o.d1);setp('pa1',fmt(o.a1));setp('pd2',o.d2);setp('pa2',fmt(o.a2));setp('pd3',o.d3);setp('pa3',fmt(o.a3));setp('pnotes',o.notes);setp('pdate',o.date);
- $('preview').style.display='block'; window.scrollTo(0,document.body.scrollHeight);
-}
-render();
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+function exportData(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='EnergieSun-Mada-backup.json';a.click()}
+function importData(inp){let f=inp.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{D=JSON.parse(r.result);save();alert('Restauration réussie.')}catch(e){alert('Fichier JSON invalide.')}};r.readAsText(f)}
+function resetAll(){if(confirm('Supprimer toutes les données ?')){localStorage.removeItem(KEY);location.reload()}}
+contractCalc();refresh();calcSolar();
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script>
 </body></html>

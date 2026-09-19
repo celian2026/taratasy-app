@@ -1,21 +1,11 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "EnergieSun app",
-  "orientation": "any",
-  "scope": "/taratasy-app/",
-  "short_name": "ESMad",
-  "start_url": "/taratasy-app/",
-  "theme_color": "#0b5f3c",
-  "id": "energie-sun-app",
-  "description": "Application de gestion des contrats et paiements",
-  "icons": [
-    {
-      "src": "/taratasy-app/file_00000000de8071f5808511bde08a9816.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
+  "name":"ÉnergieSun Mada AI V2",
+  "short_name":"ESMad V2",
+  "id":"energie-sun-mada-v2",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f4f7f5",
+  "theme_color":"#0b5f3c",
+  "description":"Application de gestion solaire, clients, contrats, factures, stock et SAV.",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
