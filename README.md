@@ -5,3 +5,7 @@ Modules: dashboard, calcul solaire, chute de tension indicative, contrats échel
 Mettre ces fichiers sur GitHub Pages ou un hébergement HTTPS, puis ouvrir sur Android et choisir "Ajouter à l'écran d'accueil".
 ## APK
 Cette version est une PWA. Pour un APK/AAB, elle peut être empaquetée ensuite avec PWABuilder/Trusted Web Activity. Une vraie IA cloud nécessite une API/backend et une clé sécurisée; la V2 inclut donc un assistant local sans clé.
+
+
+## V3 PWA packaging
+Added 192x192 and 512x512 PNG icons and updated manifest for PWABuilder/Android packaging.
