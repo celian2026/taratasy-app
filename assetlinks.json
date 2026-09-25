@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.celian2026.twa",
+        "sha256_cert_fingerprints": ["1D:DF:2D:7B:65:43:32:DE:94:42:32:3E:46:18:42:7D:5B:B7:A1:D9:1A:5C:B4:A5:1F:3E:83:19:2B:92:21:6B"]
+      }
+    }]
